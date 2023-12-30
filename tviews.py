@@ -49,7 +49,7 @@ class Telegram:
                     headers={
                         'referer': f'https://t.me/{self.channel}/{self.post}',
                         'user-agent': user_agent
-                    }, timeout=aiohttp.ClientTimeout(total=5)
+                    }, timeout=aiohttp.ClientTimeout(total=2)
                 ) as embed_response:
                     if jar.filter_cookies(embed_response.url).get('stel_ssid'):
                         views_token = search('data-view="([^"]+)"', await embed_response.text())
